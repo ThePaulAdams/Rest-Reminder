@@ -6,7 +6,7 @@ A Health and Safety application that reminds you to take a break from screen usa
 Just extract the files to a location of your choice. Add it to your startup folder
 
 # Download
-[zip/exe](http://thepauladams.com/RestReminder.zip)
+[zip/exe](http://thepauladams.com/RestReminder.zip) 32bit EXE
 
 
 ```
