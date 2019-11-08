@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rest_Reminder"
         mc:Ignorable="d"
-        Icon="coffee.ico"
         xmlns:p="clr-namespace:Rest_Reminder.Properties"
         Title="Settings" Height="96.794" Width="311.873" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Grid Height="257" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.405" Margin="0,0,0,-127">

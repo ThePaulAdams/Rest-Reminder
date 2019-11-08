@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Input;
 
 // <summary>
@@ -68,7 +69,7 @@ namespace Rest_Reminder
             midonate.Index = 2;
             midonate.Text = Properties.Resources.MainWindow_MainWindow_Donate;
             midonate.Click += Midonate_Click;
-
+            Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory + "coffee.ico");
             _ni.Icon = new System.Drawing.Icon(AppDomain.CurrentDomain.BaseDirectory + "coffee.ico");
             _ni.Visible = true;
             _ni.DoubleClick += delegate
@@ -89,7 +90,7 @@ namespace Rest_Reminder
             Loaded += Window_Loaded;
 
             //set image to smile :)
-            Image.Source = new BitmapImage(new Uri("smile.png", UriKind.Relative));
+            Image.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "smile.png"));
 
             //First Time Run
             //set the 55 minute timer value
@@ -108,8 +109,8 @@ namespace Rest_Reminder
                                              if (!(Time.TotalMinutes <= 0)) return;
                                              TbTime.Text = randomButtonText(); //change the timer to a GO REST message
                                              Image.Source = Delayed == 0
-                                                 ? new BitmapImage(new Uri("tired.png", UriKind.Relative))
-                                                 : new BitmapImage(new Uri("angry.png", UriKind.Relative));
+                                                 ? new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "tired.png"))
+                                                 : new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "angry.png"));
                                              Show(); //show the task bar icon
                                              WindowState = WindowState.Normal; // show the window
                                              Left = desktopWorkingArea.Right / 2 -
@@ -247,7 +248,7 @@ namespace Rest_Reminder
                                                     .worktime); // reset the timer to 55 minutes for their next break
                     _timer.Start(); // start the timer again
                     //start the timer
-                    Image.Source = new BitmapImage(new Uri("smile.png", UriKind.Relative)); //be happy again
+                    Image.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "smile.png")); //be happy again
                     var desktopWorkingArea = SystemParameters.WorkArea;
                     Left = desktopWorkingArea.Right - Width;
                     Top = desktopWorkingArea.Bottom - Height;
@@ -261,7 +262,7 @@ namespace Rest_Reminder
                                                     .worktime); // reset the timer to 55 minutes for their next break
                     _timer.Start(); // start the timer again
                     //start the timer
-                    Image.Source = new BitmapImage(new Uri("smile.png", UriKind.Relative)); //be happy again
+                    Image.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "smile.png")); //be happy again
                     var desktopWorkingArea = SystemParameters.WorkArea;
                     Left = desktopWorkingArea.Right - Width;
                     Top = desktopWorkingArea.Bottom - Height;
