@@ -1,0 +1,19 @@
+# Visual Studio 2015 user configuration files / folder
+.vs
+*.suo
+*.user
+
+# NuGet packages
+packages
+
+# Intermediate build files
+obj
+
+# Binary build output
+bin
+*.pdb
+
+# Runtime application data
+App_Data
+
+*.log
