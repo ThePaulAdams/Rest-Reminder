@@ -17,3 +17,5 @@ bin
 App_Data
 
 *.log
+
+Release
