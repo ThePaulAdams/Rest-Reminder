@@ -27,9 +27,9 @@
                  Text="{Binding Source={x:Static p:Settings.Default}, Path=worktime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="22" VerticalAlignment="Bottom" />
             <TextBox x:Name="delaytime" Margin="96,5,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                  Text="{Binding Source={x:Static p:Settings.Default}, Path=delaytime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" HorizontalAlignment="Left" Width="29" Height="23" VerticalAlignment="Top" />
-            <Label x:Name="label_Copy2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Minutes" Margin="127,5,41,12" Grid.Row="1" Grid.ColumnSpan="2" Height="23" VerticalAlignment="Center" />
+            <Label x:Name="label_Copy2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Minutes" Margin="127,4,41,13" Grid.Row="1" Grid.ColumnSpan="2" Height="23" VerticalAlignment="Center" />
             <Button x:Name="ButtonSave" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="save" HorizontalAlignment="Left" Margin="38,22,0,0" Width="34" Height="20" Click="button_Click" Grid.Column="1" VerticalAlignment="Top" Grid.RowSpan="2"/>
-            <Label x:Name="label_Copy1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Minutes" Margin="127,8,41,2" Grid.ColumnSpan="2" Height="22" VerticalAlignment="Center" />
+            <Label x:Name="label_Copy1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Minutes" Margin="127,7,41,1" Grid.ColumnSpan="2" Height="24" VerticalAlignment="Center" />
 
         </Grid>
     </Border>
