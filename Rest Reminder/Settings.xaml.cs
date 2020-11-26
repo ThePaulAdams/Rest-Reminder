@@ -78,9 +78,6 @@ namespace Rest_Reminder
 
         private void SetStartup()
         {
-
-
-
             string exePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly()?.Location);
             Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true)
                 ?.SetValue("Rest Reminder", exePath ?? throw new InvalidOperationException());
@@ -91,7 +88,8 @@ namespace Rest_Reminder
                 object sender,
                 RoutedEventArgs e) //replace the minimise button with this false minimise button, because we wanted to hide the close button.
         {
-            WindowState = WindowState.Minimized;
+            this.WindowState = WindowState.Minimized;
+            this.Hide(); // Programmatically hides the window
         }
     }
 }

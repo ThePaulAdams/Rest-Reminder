@@ -8,14 +8,77 @@
         Background="Transparent"
         ResizeMode="NoResize"
         Closing="Window_Closing" 
-        Title="Rest Reminder :)" Height="323.231" Width="233.926" Topmost="True">
+        Title="Rest Reminder :)" Height="240.956" Width="233.926" Topmost="True">
+
+    <Window.Resources>
+        <Style x:Key="DialogButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle x:Name="GelBackground" Opacity="1" RadiusX="9" RadiusY="9"
+                                   Fill="{TemplateBinding Background}" StrokeThickness="0.35">
+                                <Rectangle.Stroke>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#FF6495ED" Offset="0" />
+                                        <GradientStop Color="#FF6495ED" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Stroke>
+                            </Rectangle>
+                            <Rectangle x:Name="GelShine" Margin="2,2,2,0" VerticalAlignment="Top" RadiusX="6" RadiusY="6"
+                                   Opacity="1" Stroke="Transparent" Height="15px">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#FF6495ED" Offset="0"/>
+                                        <GradientStop Color="Transparent" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Brown">
+
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Fill" TargetName="GelBackground">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                            <GradientStop Color="Blue" Offset="0"/>
+                                            <GradientStop Color="Blue" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Fill" TargetName="GelBackground" Value="LightGray">
+
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#FF4169E1"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="55"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+
     <Border Name="windowBorder" BorderThickness="2" BorderBrush="DarkBlue" CornerRadius="20" Background="AliceBlue">
-        <Grid Margin="0,0,1,0" MouseDown="Grid_OnMouseDown">
-            <TextBlock x:Name="TbTime" Height="38" Margin="0,5,0,0" VerticalAlignment="Top" TextAlignment="Center" Text="00:00:00" HorizontalAlignment="Left" Width="227"/>
-            <Image x:Name="Image" Height="200" Margin="40,43,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" RenderTransformOrigin="0.322,0.503"/>
-            <Button x:Name="BreakB" Content="Take Break" HorizontalAlignment="Left" Margin="9,256,0,10" Width="100" Click="_breakB_Click"/>
-            <Button x:Name="DelayB" Content="Delay Break" Margin="118,256,0,10" HorizontalAlignment="Left" Width="100" Click="DelayB_Click"/>
-            <Button x:Name="Button" Content="-" HorizontalAlignment="Left" Margin="189,5,0,0" VerticalAlignment="Top" Width="17" Height="15" Click="button_Click"/>
+        <Grid Margin="0,0,1,-2" MouseDown="Grid_OnMouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="112*"/>
+                <ColumnDefinition Width="111*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TbTime" Height="38" Margin="0,5,0,0" VerticalAlignment="Top" TextAlignment="Center" Text="00:00:00" HorizontalAlignment="Left" Width="223" Grid.ColumnSpan="2"/>
+            <Image x:Name="Image" Height="138" Margin="40,43,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" RenderTransformOrigin="0.322,0.503" Grid.ColumnSpan="2"/>
+            <Button Style="{StaticResource DialogButtonStyle}" x:Name="BreakB" Content="Take Break" Margin="10,0,10,7" Width="Auto" Click="_breakB_Click" Height="27" VerticalAlignment="Bottom"/>
+            <Button Style="{StaticResource DialogButtonStyle}" x:Name="DelayB" Content="Delay Break" Margin="0,0,10,7" Width="Auto" Click="DelayB_Click" Height="27" VerticalAlignment="Bottom" Grid.Column="1"/>
+            <Button Style="{StaticResource DialogButtonStyle}" x:Name="Button" Content="-" HorizontalAlignment="Left" Margin="52,10,0,0" VerticalAlignment="Top" Width="27" Height="16" Click="button_Click" Grid.Column="1"/>
         </Grid>
     </Border>
 </Window>

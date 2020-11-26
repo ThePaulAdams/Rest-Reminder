@@ -44,7 +44,7 @@ namespace Rest_Reminder
             _settings = settings;
             var desktopWorkingArea = SystemParameters.WorkArea;
             LeftPos = desktopWorkingArea.Right / 2 - Width / 2; // put the window in the middle of the screen
-            TopPos = desktopWorkingArea.Right / 2 - Width / 2; // put the window in the middle of the screen
+            TopPos = desktopWorkingArea.Bottom / 2 - Width / 2; // put the window in the middle of the screen
             var cm = new ContextMenu();
             if (_ni == null) _ni = new NotifyIcon();
             MenuItem mibreak = new MenuItem();
@@ -53,7 +53,7 @@ namespace Rest_Reminder
 
             // Create the System Tray Icon
             // Initialize contextMenu
-            cm.MenuItems.AddRange(new[] {mibreak, misetting, midonate});
+            cm.MenuItems.AddRange(new[] {mibreak, misetting});//, midonate
 
             // Initialize menuItem1
             mibreak.Index = 0;
@@ -69,6 +69,8 @@ namespace Rest_Reminder
             midonate.Index = 2;
             midonate.Text = Properties.Resources.MainWindow_MainWindow_Donate;
             midonate.Click += Midonate_Click;
+
+
             Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory + "coffee.ico");
             _ni.Icon = new System.Drawing.Icon(AppDomain.CurrentDomain.BaseDirectory + "coffee.ico");
             _ni.Visible = true;
