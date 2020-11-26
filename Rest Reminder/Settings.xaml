@@ -8,7 +8,66 @@
         xmlns:p="clr-namespace:Rest_Reminder.Properties"
         AllowsTransparency="True"
         Background="Transparent"
-        Title="Settings" Height="71.794" Width="227.373" WindowStyle="none" ResizeMode="NoResize">
+        Title="Settings" Height="104.794" Width="227.373" WindowStyle="none" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="DialogButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle x:Name="GelBackground" Opacity="1" RadiusX="9" RadiusY="9"
+                                   Fill="{TemplateBinding Background}" StrokeThickness="0.35">
+                                <Rectangle.Stroke>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#FF6495ED" Offset="0" />
+                                        <GradientStop Color="#FF6495ED" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Stroke>
+                            </Rectangle>
+                            <Rectangle x:Name="GelShine" Margin="2,2,2,0" VerticalAlignment="Top" RadiusX="6" RadiusY="6"
+                                   Opacity="1" Stroke="Transparent" Height="15px">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Color="#FF6495ED" Offset="0"/>
+                                        <GradientStop Color="Transparent" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Brown">
+
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Fill" TargetName="GelBackground">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                            <GradientStop Color="Blue" Offset="0"/>
+                                            <GradientStop Color="Blue" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Fill" TargetName="GelBackground" Value="LightGray">
+
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#FF4169E1"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="55"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+
     <Border Name="windowBorder" BorderThickness="2" BorderBrush="DarkBlue" CornerRadius="20" Background="AliceBlue">
         <Grid RenderTransformOrigin="0.508,0.405" Margin="0,-2" Height="72" VerticalAlignment="Bottom">
             <Grid.RowDefinitions>
@@ -16,21 +75,24 @@
                 <RowDefinition Height="5*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20*" />
-                <ColumnDefinition Width="11*" />
+                <ColumnDefinition Width="0*" />
+                <ColumnDefinition Width="144*"/>
+                <ColumnDefinition Width="79*" />
             </Grid.ColumnDefinitions>
-            <Label x:Name="label" Content="Work for" Margin="4,9,6,0" Grid.RowSpan="2" Height="32" VerticalAlignment="Top" />
-            <Label x:Name="label_Copy" Content="Delay break for" Margin="3,0,7,0" Grid.Row="1" Height="36" VerticalAlignment="Top" />
+            <Label x:Name="label" Content="Work for" Margin="4,9,6,0" Grid.RowSpan="2" Height="32" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+            <Label x:Name="label_Copy" Content="Delay break for" Margin="3,0,7,0" Grid.Row="1" Height="36" VerticalAlignment="Top" Grid.ColumnSpan="2" />
 
 
             <TextBox x:Name="worktime" Margin="96,0,19,2" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                 Text="{Binding Source={x:Static p:Settings.Default}, Path=worktime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="22" VerticalAlignment="Bottom" />
+                 Text="{Binding Source={x:Static p:Settings.Default}, Path=worktime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="22" VerticalAlignment="Bottom" Grid.ColumnSpan="2" />
             <TextBox x:Name="delaytime" Margin="96,5,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                 Text="{Binding Source={x:Static p:Settings.Default}, Path=delaytime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" HorizontalAlignment="Left" Width="29" Height="23" VerticalAlignment="Top" />
-            <Label x:Name="label_Copy2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Minutes" Margin="127,4,41,13" Grid.Row="1" Grid.ColumnSpan="2" Height="23" VerticalAlignment="Center" />
-            <Button x:Name="ButtonSave" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="save" HorizontalAlignment="Left" Margin="38,22,0,0" Width="34" Height="20" Click="button_Click" Grid.Column="1" VerticalAlignment="Top" Grid.RowSpan="2"/>
-            <Label x:Name="label_Copy1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Minutes" Margin="127,7,41,1" Grid.ColumnSpan="2" Height="24" VerticalAlignment="Center" />
-
+                 Text="{Binding Source={x:Static p:Settings.Default}, Path=delaytime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" HorizontalAlignment="Left" Width="29" Height="23" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+            <Label x:Name="label_Copy2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Minutes" Margin="127,4,41,13" Grid.Row="1" Grid.ColumnSpan="3" Height="23" VerticalAlignment="Center" />
+            <Button x:Name="ButtonSave" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="save" HorizontalAlignment="Left" Margin="38,22,0,0" Width="34" Height="20" Click="buttonSave_Click" Grid.Column="2" VerticalAlignment="Top" Grid.RowSpan="2" Style="{StaticResource DialogButtonStyle}"/>
+            <Label x:Name="label_Copy1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Minutes" Margin="127,7,41,1" Grid.ColumnSpan="3" Height="24" VerticalAlignment="Center" />
+            <Label Content="Activation Key" HorizontalAlignment="Left" Margin="8,-38,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.105,2.269" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="ActivationKey" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="18" Margin="5,-15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167"/>
+            <Button x:Name="ButtonActivate" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="save" HorizontalAlignment="Left" Margin="33,-15,0,0" Width="39" Height="20" Click="buttonActivate_Click" Grid.Column="2" VerticalAlignment="Top" Style="{StaticResource DialogButtonStyle}"/>
         </Grid>
     </Border>
 </Window>

@@ -15,7 +15,7 @@ namespace GD_HS
     public partial class App : Application
     {
        
-        MainWindow _mw;
+      
         private Settings _settings;
 
         protected override void OnStartup(StartupEventArgs e)
@@ -25,16 +25,18 @@ namespace GD_HS
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
 
 
-            _mw = _settings.Mw;
-            _mw.Activate();
-            _mw.Show();
 
-      
-            _settings.Activate();
-            _settings.Show();
-            _settings.WindowState = WindowState.Normal; // show the window
-            _settings.Left = desktopWorkingArea.Right / 2; // put the window in the middle of the screen
-            _settings.Top = desktopWorkingArea.Bottom / 2; // put the window in the middle of the screen
+
+
+            //_settings.Activate();
+            //_settings.Show();
+            //_settings.WindowState = WindowState.Normal; // show the window
+            //_settings.Left = desktopWorkingArea.Right / 2; // put the window in the middle of the screen
+            //_settings.Top = desktopWorkingArea.Bottom / 2; // put the window in the middle of the screen
+
+            //_mw = _settings.Mw;
+            //_mw.Activate();
+            //_mw.Show();
 
         }
     }

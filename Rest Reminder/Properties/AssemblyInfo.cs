@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Rest Reminder")]
 [assembly: AssemblyDescription("A Health and Safety application that reminds you to take a break from screen usage.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ThePaulAdams.com")]
+[assembly: AssemblyCompany("rest-reminder.com")]
 [assembly: AssemblyProduct("Rest Reminder")]
-[assembly: AssemblyCopyright("Copyright ©  2016-2019")]
+[assembly: AssemblyCopyright("Copyright ©  2016-2020")]
 [assembly: AssemblyTrademark("ThePaulAdams©")]
 [assembly: AssemblyCulture("")]
 
@@ -53,3 +53,4 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("")]

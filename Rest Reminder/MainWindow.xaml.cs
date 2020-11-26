@@ -334,7 +334,11 @@ namespace Rest_Reminder
 
         private void Grid_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception) { }
         }
     }
 }
